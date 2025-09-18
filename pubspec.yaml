@@ -17,7 +17,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.7.2
   google_fonts: ^6.3.1
-  flutter_easyloading: ^3.0.5
   shared_preferences: ^2.5.3
   flutter_svg: ^2.2.1
   gap: ^3.0.1
@@ -27,7 +26,6 @@ dependencies:
   pdf: ^3.11.1
   printing: ^5.12.0
   path_provider: ^2.1.4
-  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
