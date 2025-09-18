@@ -31,106 +31,108 @@ class AppTheme {
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: AppColors.black,
       ),
+
       // Text Theme
       textTheme: base.textTheme.copyWith(
+        headlineMedium: GoogleFonts.poppins(
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+          color: AppColors.black,
+        ),
+
         /// H3 bold
-        headlineLarge: GoogleFonts.montserrat(
+        headlineLarge: GoogleFonts.poppins(
           fontSize: 24,
           fontWeight: FontWeight.w700,
           color: AppColors.black,
         ),
 
         /// H6 sb subheading
-        headlineMedium: GoogleFonts.montserrat(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: AppColors.black,
-        ),
 
         /// H4 medium
-        headlineSmall: GoogleFonts.montserrat(
+        headlineSmall: GoogleFonts.poppins(
           fontSize: 19,
           fontWeight: FontWeight.w500,
           color: AppColors.black,
         ),
 
         // H5 m
-        bodyMedium: GoogleFonts.montserrat(
+        bodyMedium: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w500,
           color: AppColors.black,
         ),
 
         /// paragrah 1 r
-        bodyLarge: GoogleFonts.montserrat(
+        bodyLarge: GoogleFonts.poppins(
           fontSize: 15,
           fontWeight: FontWeight.w400,
           color: AppColors.black,
         ),
 
         // paragraph 2 r
-        bodySmall: GoogleFonts.montserrat(
+        bodySmall: GoogleFonts.poppins(
           fontSize: 13,
           fontWeight: FontWeight.w400,
           color: AppColors.black,
         ),
 
         /// for selected bottom navigation bar item
-        displaySmall: GoogleFonts.montserrat(
+        displaySmall: GoogleFonts.poppins(
           fontSize: 13,
           fontWeight: FontWeight.w600,
           color: AppColors.black,
         ),
 
         /// H7sb
-        labelLarge: GoogleFonts.montserrat(
+        labelLarge: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: AppColors.black,
         ),
 
         /// H2 b
-        displayLarge: GoogleFonts.montserrat(
+        displayLarge: GoogleFonts.poppins(
           fontSize: 32,
           fontWeight: FontWeight.w700,
           color: AppColors.black,
         ),
 
         /// 24 600
-        titleLarge: GoogleFonts.montserrat(
+        titleLarge: GoogleFonts.poppins(
           fontSize: 24,
           fontWeight: FontWeight.w600,
           color: AppColors.black,
         ),
 
         /// 16 400
-        titleMedium: GoogleFonts.montserrat(
+        titleMedium: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w400,
           color: AppColors.black,
         ),
 
         /// 14 400
-        titleSmall: GoogleFonts.montserrat(
+        titleSmall: GoogleFonts.poppins(
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: AppColors.black,
         ),
         // 16 600
-        labelMedium: GoogleFonts.montserrat(
+        labelMedium: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: AppColors.black,
         ),
 
         /// 10 w300
-        labelSmall: GoogleFonts.montserrat(
+        labelSmall: GoogleFonts.poppins(
           fontSize: 10,
           fontWeight: FontWeight.w400,
           color: AppColors.black,
         ),
 
-        displayMedium: GoogleFonts.montserrat(
+        displayMedium: GoogleFonts.poppins(
           fontSize: 11,
           fontWeight: FontWeight.w500,
           color: AppColors.black,

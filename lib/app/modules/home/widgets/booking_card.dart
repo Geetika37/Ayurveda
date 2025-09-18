@@ -19,9 +19,9 @@ class BookingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: const Color.fromARGB(255, 239, 238, 238),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -41,7 +41,6 @@ class BookingCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header with index and name
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -82,10 +81,8 @@ class BookingCard extends StatelessWidget {
                 ),
                 const Gap(12),
 
-                // Date and details row
                 Row(
                   children: [
-                    // Date icon and text
                     Row(
                       children: [
                         Icon(
@@ -106,7 +103,6 @@ class BookingCard extends StatelessWidget {
                     ),
                     const Gap(16),
 
-                    // People icon and count
                     Row(
                       children: [
                         Icon(
@@ -128,8 +124,8 @@ class BookingCard extends StatelessWidget {
                   ],
                 ),
                 const Gap(12),
+                Divider(color: Colors.grey[300]),
 
-                // View booking details button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

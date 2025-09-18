@@ -304,7 +304,7 @@ class RegisterpageView extends GetView<RegisterpageController> {
           child: ElevatedButton(
             onPressed: () => _showTreatmentSelectionDialog(),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green[600],
+              backgroundColor: AppColors.primaryColor,
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               shape: RoundedRectangleBorder(
@@ -723,7 +723,7 @@ class RegisterpageView extends GetView<RegisterpageController> {
         const SizedBox(width: 8),
         Container(
           decoration: BoxDecoration(
-            color: Colors.green[600],
+            color: AppColors.primaryColor,
             shape: BoxShape.circle,
           ),
           child: IconButton(
@@ -758,7 +758,8 @@ class RegisterpageView extends GetView<RegisterpageController> {
         const SizedBox(width: 8),
         Container(
           decoration: BoxDecoration(
-            color: Colors.green[600],
+            color: AppColors.primaryColor,
+
             shape: BoxShape.circle,
           ),
           child: IconButton(

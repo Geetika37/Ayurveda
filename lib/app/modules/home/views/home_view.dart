@@ -56,144 +56,136 @@ class HomeView extends GetView<HomeController> {
             const Gap(16),
 
             // Patient List
-            Expanded(
-              child: Obx(() {
-                if (controller.isPatientListLoading.value) {
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: AppColors.primaryColor,
-                    ),
-                  );
-                }
-
-                if (controller.filteredPatientList.isEmpty) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.search_off,
-                          size: 64,
-                          color: Colors.grey[400],
-                        ),
-                        const Gap(16),
-                        Text(
-                          'No patients found',
-                          style: GoogleFonts.inter(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                        const Gap(8),
-                        Text(
-                          'Try adjusting your search criteria',
-                          style: GoogleFonts.inter(
-                            fontSize: 14,
-                            color: Colors.grey[500],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-
-                return RefreshIndicator(
-                  color: AppColors.primaryColor,
-                  onRefresh: () async {
-                    controller.onRefresh();
-                  },
-                  child: ListView.builder(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    itemCount: controller.filteredPatientList.length,
-                    itemBuilder: (context, index) {
-                      final patient = controller.filteredPatientList[index];
-                      return BookingCard(
-                        patient: patient,
-                        index: index,
-                        onTap: () {
-                          // Navigate to patient details
-                          // Get.toNamed(Routes.PATIENT_DETAILS, arguments: patient);
-                        },
-                      );
-                    },
-                  ),
-                );
-              }),
-            ),
+            _buildPatientList(),
           ],
         ),
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CustomButton(
-          text: 'Register',
-          onPressed: () {
-            Get.toNamed(Routes.REGISTERPAGE);
-          },
-          buttoncolor: AppColors.primaryColor,
-          textcolor: AppColors.white,
-        ),
-      ),
+      floatingActionButton: _buildRegisterButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
+  Padding _buildRegisterButton() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CustomButton(
+        text: 'Register',
+        onPressed: () {
+          Get.toNamed(Routes.REGISTERPAGE);
+        },
+        buttoncolor: AppColors.primaryColor,
+        textcolor: AppColors.white,
+      ),
+    );
+  }
+
+  Expanded _buildPatientList() {
+    return Expanded(
+      child: Obx(() {
+        if (controller.isPatientListLoading.value) {
+          return const Center(
+            child: CircularProgressIndicator(color: AppColors.primaryColor),
+          );
+        }
+
+        if (controller.filteredPatientList.isEmpty) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.search_off, size: 64, color: Colors.grey[400]),
+                const Gap(16),
+                Text(
+                  'No patients found',
+                  style: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[600],
+                  ),
+                ),
+                const Gap(8),
+                Text(
+                  'Try adjusting your search criteria',
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                    color: Colors.grey[500],
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
+
+        return RefreshIndicator(
+          color: AppColors.primaryColor,
+          onRefresh: () async {
+            controller.onRefresh();
+          },
+          child: ListView.builder(
+            physics: const AlwaysScrollableScrollPhysics(),
+            itemCount: controller.filteredPatientList.length,
+            itemBuilder: (context, index) {
+              final patient = controller.filteredPatientList[index];
+              return BookingCard(
+                patient: patient,
+                index: index,
+                onTap: () {
+                  
+                },
+              );
+            },
+          ),
+        );
+      }),
+    );
+  }
+
   Widget _buildSearchBar() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey[300]!),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextField(
-              controller: controller.searchController,
-              onChanged: (value) => controller.onSearchChanged(),
-              decoration: InputDecoration(
-                hintText: 'Search for treatments',
-                hintStyle: GoogleFonts.inter(
-                  fontSize: 14,
-                  color: Colors.grey[500],
-                ),
-                prefixIcon: Icon(Icons.search, color: Colors.grey[500]),
-                border: InputBorder.none,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            controller: controller.searchController,
+            onChanged: (value) => controller.onSearchChanged(),
+            decoration: InputDecoration(
+              hintText: 'Search for treatments',
+              hintStyle: GoogleFonts.inter(
+                fontSize: 14,
+                color: Colors.grey[500],
+              ),
+              prefixIcon: Icon(Icons.search, color: Colors.grey[500]),
+              border: InputBorder.none,
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 12,
               ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(right: 8),
-            child: ElevatedButton(
-              onPressed: () => controller.onSearchChanged(),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryColor,
-                foregroundColor: Colors.white,
-                elevation: 0,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 12,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6),
-                ),
+        ),
+        const Gap(8),
+        Container(
+          margin: const EdgeInsets.only(right: 8),
+          child: ElevatedButton(
+            onPressed: () => controller.onSearchChanged(),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.primaryColor,
+              foregroundColor: Colors.white,
+              elevation: 0,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6),
               ),
-              child: Text(
-                'Search',
-                style: GoogleFonts.inter(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                ),
+            ),
+            child: Text(
+              'Search',
+              style: GoogleFonts.inter(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
