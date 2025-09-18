@@ -66,7 +66,7 @@ class LoginView extends GetView<LoginController> {
                       const SizedBox(height: 30),
 
                       const Text(
-                        'Email',
+                        'Username',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
@@ -78,7 +78,7 @@ class LoginView extends GetView<LoginController> {
                         controller: controller.emailController,
                         validator: Validators.nameValidator,
                         keyboardType: TextInputType.emailAddress,
-                        hintText: 'Enter email',
+                        hintText: 'Enter username',
                       ),
                       const SizedBox(height: 20),
 

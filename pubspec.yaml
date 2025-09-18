@@ -27,6 +27,7 @@ dependencies:
   pdf: ^3.11.1
   printing: ^5.12.0
   path_provider: ^2.1.4
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +45,19 @@ flutter:
   assets:
     - assets/img/
     - assets/svg/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  remove_alpha_ios: true
+  ios: true
+  image_path: "assets/img/appicon.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/img/appicon.png"
+  web:
+    generate: true
+    image_path: "assets/img/appicon.png"
+    background_color: "#ffffff"
+    theme_color: "#ffffff"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
